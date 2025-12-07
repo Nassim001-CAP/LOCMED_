@@ -22,11 +22,26 @@ function loadAppData() {
         initializeSampleData();
         saveAppData();
     }
+    
+    // Restaurer la session courante depuis sessionStorage (spécifique à cet onglet)
+    const sessionUser = sessionStorage.getItem('locmedCurrentUser');
+    if (sessionUser) {
+        appData.currentUser = JSON.parse(sessionUser);
+    } else {
+        appData.currentUser = null;
+    }
 }
 
 // Sauvegarder les données
 function saveAppData() {
     localStorage.setItem('locmedData', JSON.stringify(appData));
+    
+    // Sauvegarder aussi la session courante dans sessionStorage
+    if (appData.currentUser) {
+        sessionStorage.setItem('locmedCurrentUser', JSON.stringify(appData.currentUser));
+    } else {
+        sessionStorage.removeItem('locmedCurrentUser');
+    }
 }
 
 // Initialiser avec des données d'exemple
