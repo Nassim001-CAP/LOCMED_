@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocMed - Location de Matériel Médical</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page d'accueil -->
+    <div id="landingPage" class="page active">
+        <nav class="landing-navbar">
+            <div class="navbar-brand">
+                <div class="logo-container">
+                    <div class="logo-icon-box">
+                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Croix médicale -->
+                            <g class="medical-cross">
+                                <rect x="35" y="20" width="30" height="60" rx="5" fill="white"/>
+                                <rect x="20" y="35" width="60" height="30" rx="5" fill="white"/>
+                            </g>
+                            <!-- Cercle de protection -->
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="2.5" opacity="0.7"/>
+                            <!-- Points d'accent -->
+                            <circle cx="50" cy="50" r="3" fill="white" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">LocMed</span>
+                </div>
+            </div>
+            <div class="navbar-menu">
+                <button class="nav-link" onclick="scrollToSection('stats')">Chiffres clés</button>
+                <button class="nav-link" onclick="scrollToSection('about')">À propos</button>
+                <button class="nav-link" onclick="scrollToSection('equipments')">Équipements</button>
+                <button class="nav-link" onclick="scrollToSection('roles')">Rôles</button>
+                <button class="btn btn-primary" onclick="switchToAuth('login')">Se connecter</button>
+            </div>
+        </nav>
+
+        <div class="landing-hero">
+            <div class="hero-background">
+                <div class="medical-float float-1">💉</div>
+                <div class="medical-float float-2">🩺</div>
+                <div class="medical-float float-3">💊</div>
+                <div class="medical-float float-4">🏥</div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Accédez au matériel médical<br><span class="highlight">sans vous ruiner</span></h1>
+                <p class="hero-subtitle">Location de matériel médical de qualité certifiée, sécurisée et abordable au Maroc</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="switchToAuth('signup')">🚀 Commencer maintenant</button>
+                    <button class="btn btn-secondary btn-large" onclick="scrollToSection('about')">En savoir plus</button>
+                </div>
+                <div class="hero-trust">
+                    <span class="trust-badge">✓ Plateforme vérifiée</span>
+                    <span class="trust-badge">✓ Paiements sécurisés</span>
+                    <span class="trust-badge">✓ Support 24/7</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Statistiques -->
+        <div id="stats" class="landing-section stats-section">
+            <h2>LocMed en chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Utilisateurs actifs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">90+</div>
+                    <div class="stat-label">Équipements disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction client</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Livraison moyenne</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section À propos -->
+        <div id="about" class="landing-section about-section-hero">
+            <h2>Pourquoi choisir LocMed ?</h2>
+            <p class="section-subtitle">Une solution complète pour vos besoins médicaux</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité maximale</h3>
+                    <p>Cryptage SSL, données protégées et assurance matériel incluse pour votre tranquillité d'esprit.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Matériel certifié</h3>
+                    <p>Tous nos équipements sont conformes aux normes médicales et inspectés régulièrement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Économies jusqu'à 70%</h3>
+                    <p>Louer coûte bien moins cher que d'acheter. Accès flexible selon vos besoins temporaires.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Livraison 24h</h3>
+                    <p>Recevez votre matériel rapidement chez vous, où que vous soyez au Maroc.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Support disponible</h3>
+                    <p>Équipe d'experts médicaux et support client prêts à vous aider à tout moment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Évaluations vérifiées</h3>
+                    <p>Avis authentiques de milliers d'utilisateurs satisfaits dans tout le Maroc.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Équipements Populaires -->
+        <div id="equipments" class="landing-section equipments-section">
+            <h2>Équipements les plus demandés</h2>
+            <p class="section-subtitle">Découvrez nos catégories principales</p>
+            <div class="equipments-grid">
+                <div class="equipment-card">
+                    <div class="equipment-emoji">♿</div>
+                    <h3>Chaises roulantes</h3>
+                    <p>Manuelles et électriques</p>
+                    <span class="equipment-count">10+ disponibles</span>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-emoji">🛏️</div>
+                    <h3>Lits médicalisés</h3>
+                    <p>Pour un confort et une sécurité optimaux</p>
+                    <span class="equipment-count">20+ disponibles</span>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-emoji">🚶</div>
+                    <h3>Déambulateurs</h3>
+                    <p>Légers et résistants</p>
+                    <span class="equipment-count">25+ disponibles</span>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-emoji">🫁</div>
+                    <h3>Concentrateurs O₂</h3>
+                    <p>Portatifs et fixes</p>
+                    <span class="equipment-count">15+ disponibles</span>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-emoji">🩼</div>
+                    <h3>Béquilles</h3>
+                    <p>Pour une mobilité assistée</p>
+                    <span class="equipment-count">15+ disponibles</span>
+                </div>
+                <div class="equipment-card">
+                    <div class="equipment-emoji">🩹</div>
+                    <h3>Autres équipements</h3>
+                    <p>Accessoires et matériel spécialisé</p>
+                    <span class="equipment-count">15+ disponibles</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-large" style="margin-top: 40px;" onclick="switchToAuth('signup')">Voir tous les équipements</button>
+        </div>
+
+        <!-- Section Rôles -->
+        <div id="roles" class="landing-section roles-section">
+            <h2>Choisissez votre profil</h2>
+            <p class="section-subtitle">Deux solutions pour deux besoins différents</p>
+            <div class="roles-container">
+                <div class="role-card tenant-role">
+                    <div class="role-header">
+                        <div class="role-icon">👨‍⚕️</div>
+                        <h3>Je suis Locataire</h3>
+                    </div>
+                    <p class="role-desc">J'ai besoin de matériel médical temporairement</p>
+                    <ul class="role-benefits">
+                        <li>✓ Accès à 15 000+ équipements</li>
+                        <li>✓ Filtres intelligents avancés</li>
+                        <li>✓ Gestion intuitive des commandes</li>
+                        <li>✓ Suivi en temps réel live</li>
+                        <li>✓ Avis vérifiés 100% fiables</li>
+                        <li>✓ Support technique gratuit</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="switchToAuth('signup')">S'inscrire comme Locataire</button>
+                </div>
+
+                <div class="role-card owner-role">
+                    <div class="role-header">
+                        <div class="role-icon">🏪</div>
+                        <h3>Je suis Propriétaire</h3>
+                    </div>
+                    <p class="role-desc">J'ai du matériel à louer et veux générer des revenus</p>
+                    <ul class="role-benefits">
+                        <li>✓ Gestion d'inventaire facile</li>
+                        <li>✓ Demandes de clients qualifiés</li>
+                        <li>✓ Paiements sécurisés instantanés</li>
+                        <li>✓ Tarification flexible libre</li>
+                        <li>✓ Gestion utilisateurs avancée</li>
+                        <li>✓ Revenus passifs récurrents</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="switchToAuth('signup')">S'inscrire comme Propriétaire</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="landing-footer">
+            <p>© 2025 LocMed - Transformons l'accès au matériel médical au Maroc | Tous droits réservés</p>
+        </footer>
+    </div>
+
+    <!-- Page d'authentification -->
+    <div id="authPage" class="page">
+        <div class="auth-header-back">
+            <button class="back-btn" onclick="backToLanding()">← Retour</button>
+        </div>
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1>LocMed</h1>
+                <p>Plateforme de location de matériel médical</p>
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <div id="loginForm" class="auth-form active">
+                <div class="form-header-icon">🔐</div>
+                <h2>Connexion</h2>
+                <p class="form-subtitle">Connectez-vous à votre compte LocMed</p>
+                <form>
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="loginEmail" placeholder="votre.email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Mot de passe</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔑</span>
+                            <input type="password" id="loginPassword" placeholder="Entrez votre mot de passe" required>
+                        </div>
+                    </div>
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <button type="button" class="forgot-link" onclick="resetPassword()">Mot de passe oublié ?</button>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-login" onclick="handleLogin()">Se connecter</button>
+                </form>
+                
+                <p class="auth-switch">
+                    Pas de compte ? <button type="button" onclick="switchAuthForm('signup')">S'inscrire gratuitement</button>
+                </p>
+            </div>
+
+            <!-- Formulaire d'inscription -->
+            <div id="signupForm" class="auth-form">
+                <div class="form-header-icon">🧑</div>
+                <h2>Créer un compte</h2>
+                <p class="form-subtitle">Rejoignez LocMed en 5 minutes</p>
+                <form>
+                    <div class="form-group">
+                        <label for="signupName">Nom complet</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="signupName" placeholder="Jean Dupont" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="signupEmail" placeholder="votre.email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Téléphone</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📱</span>
+                            <input type="tel" id="signupPhone" placeholder="+212 6XX XXX XXX" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Mot de passe</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔑</span>
+                            <input type="password" id="signupPassword" placeholder="Min. 8 caractères" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPasswordConfirm">Confirmer le mot de passe</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">✓</span>
+                            <input type="password" id="signupPasswordConfirm" placeholder="Répétez votre mot de passe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Je suis :</label>
+                        <div class="account-type-selector">
+                            <label class="account-type-card">
+                                <input type="radio" name="userType" value="tenant" required>
+                                <div class="type-content">
+                                    <span class="type-icon">👨‍⚕️</span>
+                                    <span class="type-name">Locataire</span>
+                                    <span class="type-desc">Je veux louer du matériel</span>
+                                </div>
+                            </label>
+                            <label class="account-type-card">
+                                <input type="radio" name="userType" value="owner" required>
+                                <div class="type-content">
+                                    <span class="type-icon">🏪</span>
+                                    <span class="type-name">Propriétaire</span>
+                                    <span class="type-desc">J'ai du matériel à louer</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="terms-checkbox">
+                        <label>
+                            <input type="checkbox" required>
+                            <span>J'accepte les <button type="button" class="inline-link">conditions d'utilisation</button></span>
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-login" onclick="handleSignup()">Créer mon compte</button>
+                </form>
+                <p class="auth-switch">
+                    Déjà inscrit ? <button type="button" onclick="switchAuthForm('login')">Se connecter ici</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Locataire -->
+    <div id="tenantPage" class="page">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <div class="logo-container">
+                    <div class="logo-icon-box">
+                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Croix médicale -->
+                            <g class="medical-cross">
+                                <rect x="35" y="20" width="30" height="60" rx="5" fill="white"/>
+                                <rect x="20" y="35" width="60" height="30" rx="5" fill="white"/>
+                            </g>
+                            <!-- Cercle de protection -->
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="2.5" opacity="0.7"/>
+                            <!-- Points d'accent -->
+                            <circle cx="50" cy="50" r="3" fill="white" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">LocMed</span>
+                </div>
+            </div>
+            <div class="navbar-menu">
+                <button class="nav-btn active" onclick="showTenantSection('home')">Accueil</button>
+                <button class="nav-btn" onclick="showTenantSection('browse')">Parcourir</button>
+                <button class="nav-btn" onclick="showTenantSection('orders')">Mes commandes</button>
+                <button class="nav-btn" onclick="showTenantSection('favorites')">Favoris</button>
+                <button class="nav-btn" onclick="showTenantSection('profile')">Profil</button>
+                <button class="nav-btn logout" onclick="handleLogout()">Déconnexion</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Section Accueil -->
+            <div id="tenantHome" class="section active">
+                <div class="welcome-banner tenant-banner hero-style">
+                    <div class="hero-background">
+                        <div class="medical-float float-1">♿</div>
+                        <div class="medical-float float-2">💊</div>
+                        <div class="medical-float float-3">🩺</div>
+                        <div class="medical-float float-4">🏥</div>
+                    </div>
+                    <div class="welcome-content hero-content-tenant">
+                        <h1 class="hero-title-tenant">Trouvez le matériel médical<br><span class="highlight">qu'il vous faut</span></h1>
+                        <p class="hero-subtitle-tenant">Accédez aux meilleurs équipements certifiés à des prix abordables, livrés rapidement chez vous</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary btn-large" onclick="showTenantSection('browse')">🔍 Explorer les équipements</button>
+                            <button class="btn btn-secondary btn-large" onclick="showTenantSection('profile')">Mon profil</button>
+                        </div>
+                        <div class="hero-trust">
+                            <span class="trust-badge">✓ Matériel certifié</span>
+                            <span class="trust-badge">✓ Livraison 24h</span>
+                            <span class="trust-badge">✓ Satisfaction garantie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>À propos de LocMed</h3>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-icon">✓</div>
+                            <h4>Simple et Sécurisé</h4>
+                            <p>Louer du matériel médical n'a jamais été aussi facile. Plateforme sécurisée avec paiement protégé.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🏥</div>
+                            <h4>Matériel de Qualité</h4>
+                            <p>Tous nos propriétaires proposent du matériel certifié et contrôlé régulièrement.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">💰</div>
+                            <h4>Tarifs Compétitifs</h4>
+                            <p>Accès à des tarifs justes et compétitifs pour tous types de matériel médical.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🚚</div>
+                            <h4>Livraison Rapide</h4>
+                            <p>Nous organisons la livraison directement à votre domicile dans les délais convenus.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">📞</div>
+                            <h4>Support Client</h4>
+                            <p>Une équipe disponible pour répondre à toutes vos questions 24h/24.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">⭐</div>
+                            <h4>Communauté Fiable</h4>
+                            <p>Rejoignez des milliers d'utilisateurs satisfaits en Maroc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Commencez dès maintenant</h3>
+                    <button class="btn btn-primary btn-large" onclick="showTenantSection('browse')">Parcourir les matériels</button>
+                </div>
+            </div>
+
+            <!-- Section Parcourir les produits -->
+            <div id="tenantBrowse" class="section">
+                <div class="section-header">
+                    <h2>Matériel disponible</h2>
+                    <div class="search-filter">
+                        <input type="text" id="searchInput" placeholder="Rechercher un matériel..." onkeyup="filterProducts()">
+                        <select id="categoryFilter" onchange="filterProducts()">
+                            <option value="">Toutes les catégories</option>
+                            <option value="wheelchair">Chaise roulante</option>
+                            <option value="bed">Lit médicalisé</option>
+                            <option value="walker">Déambulateur</option>
+                            <option value="crutches">Béquilles</option>
+                            <option value="oxygen">Concentrateur d'oxygène</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="productsList" class="products-grid">
+                    <!-- Les produits seront affichés ici -->
+                </div>
+            </div>
+
+            <!-- Section Mes commandes -->
+            <div id="tenantOrders" class="section">
+                <h2>Mes commandes</h2>
+                <div id="ordersList" class="orders-list">
+                    <!-- Les commandes seront affichées ici -->
+                </div>
+            </div>
+
+            <!-- Section Favoris -->
+            <div id="tenantFavorites" class="section">
+                <h2>Mes favoris</h2>
+                <div id="favoritesList" class="products-grid">
+                    <!-- Les favoris seront affichés ici -->
+                </div>
+            </div>
+
+            <!-- Section Profil -->
+            <div id="tenantProfile" class="section">
+                <h2>Mon profil</h2>
+                <div class="profile-info">
+                    <div class="info-group">
+                        <label>Nom :</label>
+                        <p id="profileName"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email :</label>
+                        <p id="profileEmail"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Adresse de livraison :</label>
+                        <textarea id="profileAddress" placeholder="Entrez votre adresse..."></textarea>
+                    </div>
+                    <div class="info-group">
+                        <label>Téléphone :</label>
+                        <input type="tel" id="profilePhone" placeholder="Votre téléphone">
+                    </div>
+                    <button class="btn btn-primary" onclick="saveTenantProfile()">Sauvegarder le profil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Propriétaire -->
+    <div id="ownerPage" class="page">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <div class="logo-container">
+                    <div class="logo-icon-box">
+                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Croix médicale -->
+                            <g class="medical-cross">
+                                <rect x="35" y="20" width="30" height="60" rx="5" fill="white"/>
+                                <rect x="20" y="35" width="60" height="30" rx="5" fill="white"/>
+                            </g>
+                            <!-- Cercle de protection -->
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="2.5" opacity="0.7"/>
+                            <!-- Points d'accent -->
+                            <circle cx="50" cy="50" r="3" fill="white" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">LocMed</span>
+                </div>
+            </div>
+            <div class="navbar-menu">
+                <button class="nav-btn active" onclick="showOwnerSection('home')">Accueil</button>
+                <button class="nav-btn" onclick="showOwnerSection('myProducts')">Mes annonces</button>
+                <button class="nav-btn" onclick="showOwnerSection('addProduct')">Ajouter annonce</button>
+                <button class="nav-btn" onclick="showOwnerSection('orders')">Demandes de location</button>
+                <button class="nav-btn" onclick="showOwnerSection('earnings')">Revenus</button>
+                <button class="nav-btn" onclick="showOwnerSection('profile')">Profil</button>
+                <button class="nav-btn logout" onclick="handleLogout()">Déconnexion</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Section Accueil Propriétaire -->
+            <div id="ownerHome" class="section active">
+                <div class="welcome-banner owner-banner hero-style">
+                    <div class="hero-background">
+                        <div class="medical-float float-1">💵</div>
+                        <div class="medical-float float-2">📈</div>
+                        <div class="medical-float float-3">🏥</div>
+                        <div class="medical-float float-4">💼</div>
+                    </div>
+                    <div class="welcome-content hero-content-owner">
+                        <h1 class="hero-title-owner">Générez des revenus<br><span class="highlight">en louant votre matériel</span></h1>
+                        <p class="hero-subtitle-owner">Transformez votre équipement médical inutilisé en source de revenus passive et sécurisée</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary btn-large" onclick="showOwnerSection('addProduct')">🚀 Ajouter une annonce</button>
+                            <button class="btn btn-secondary btn-large" onclick="scrollToSection('about')">En savoir plus</button>
+                        </div>
+                        <div class="hero-trust">
+                            <span class="trust-badge">✓ Paiements sécurisés</span>
+                            <span class="trust-badge">✓ Revenus garantis</span>
+                            <span class="trust-badge">✓ Support 24/7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Actions rapides</h3>
+                    <div class="quick-actions-grid">
+                        <button class="quick-action-btn" onclick="showOwnerSection('addProduct')">
+                            <span class="action-icon">➕</span>
+                            <span class="action-label">Ajouter une<br>annonce</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="showOwnerSection('myProducts')">
+                            <span class="action-icon">📋</span>
+                            <span class="action-label">Voir mes<br>annonces</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="showOwnerSection('orders')">
+                            <span class="action-icon">📬</span>
+                            <span class="action-label">Demandes de<br>location</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="showOwnerSection('earnings')">
+                            <span class="action-icon">💰</span>
+                            <span class="action-label">Consulter<br>mes revenus</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="owner-stats">
+                    <h3>Vos statistiques détaillées</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card stat-card-1">
+                            <div class="stat-icon">📌</div>
+                            <div class="stat-content">
+                                <div class="stat-number" id="homeProductCount">0</div>
+                                <div class="stat-label">Annonces actives</div>
+                                <div class="stat-description">Prêtes à être louées</div>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-card-2">
+                            <div class="stat-icon">⏳</div>
+                            <div class="stat-content">
+                                <div class="stat-number" id="homeOrderCount">0</div>
+                                <div class="stat-label">Demandes en attente</div>
+                                <div class="stat-description">À valider</div>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-card-3">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-content">
+                                <div class="stat-number" id="homeCompletedCount">0</div>
+                                <div class="stat-label">Locations complétées</div>
+                                <div class="stat-description">Total réussi</div>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-card-4">
+                            <div class="stat-icon">💵</div>
+                            <div class="stat-content">
+                                <div class="stat-number" id="homeEarningAmount">0 DH</div>
+                                <div class="stat-label">Revenus totaux</div>
+                                <div class="stat-description">Cumulé</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>Pourquoi choisir LocMed ?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">💵</div>
+                            <h4>Générer des Revenus</h4>
+                            <p>Louez votre matériel inutilisé et gagnez de l'argent facilement.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🛡️</div>
+                            <h4>Protection Garantie</h4>
+                            <p>Caution sécurisée et protection en cas de dommage ou perte.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">📊</div>
+                            <h4>Gestion Simple</h4>
+                            <p>Dashboard intuitif pour gérer vos annonces et commandes.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">👥</div>
+                            <h4>Accès à une Large Base</h4>
+                            <p>Rejoignez des milliers de locataires à la recherche de matériel.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">📈</div>
+                            <h4>Suivi des Revenus</h4>
+                            <p>Consultez vos gains en temps réel avec notre système de statistiques.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🤝</div>
+                            <h4>Partenariat de Confiance</h4>
+                            <p>Rejoignez notre communauté de propriétaires fiables et évalués.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section owner-cta">
+                    <div class="cta-content">
+                        <h3>Commencez à générer des revenus dès maintenant</h3>
+                        <p>Ajoutez votre premier matériel et connectez-vous avec les locataires</p>
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="showOwnerSection('addProduct')">🚀 Ajouter une annonce</button>
+                </div>
+            </div>
+
+            <!-- Section Mes annonces -->
+            <div id="ownerMyProducts" class="section">
+                <h2>Mes annonces</h2>
+                <div id="myProductsList" class="products-grid">
+                    <!-- Les annonces seront affichées ici -->
+                </div>
+            </div>
+
+            <!-- Section Ajouter un produit -->
+            <div id="ownerAddProduct" class="section">
+                <h2>Ajouter une nouvelle annonce</h2>
+                <form class="form-product">
+                    <div class="form-group">
+                        <label>Nom du matériel :</label>
+                        <input type="text" id="productName" placeholder="Ex: Chaise roulante électrique" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Catégorie :</label>
+                        <select id="productCategory" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="wheelchair">Chaise roulante</option>
+                            <option value="bed">Lit médicalisé</option>
+                            <option value="walker">Déambulateur</option>
+                            <option value="crutches">Béquilles</option>
+                            <option value="oxygen">Concentrateur d'oxygène</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description :</label>
+                        <textarea id="productDescription" placeholder="Décrivez votre matériel..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>État du matériel :</label>
+                        <select id="productCondition" required>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Bon</option>
+                            <option value="fair">Acceptable</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Prix par jour (DH) :</label>
+                            <input type="number" id="productPrice" placeholder="100" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Caution (DH) :</label>
+                            <input type="number" id="productDeposit" placeholder="500" min="0" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo du matériel :</label>
+                        <div class="photo-upload-section">
+                            <div class="upload-options">
+                                <input type="file" id="productImageFile" accept="image/*" onchange="handleImageUpload(event)">
+                                <label for="productImageFile" class="btn btn-secondary">📸 Choisir une photo</label>
+                            </div>
+                            <p class="photo-hint">ou entrez l'URL directement :</p>
+                            <input type="text" id="productImageUrl" placeholder="https://example.com/image.jpg">
+                            <div id="imagePreview" class="image-preview" style="display: none;">
+                                <img id="previewImage" src="" alt="Aperçu">
+                                <button type="button" class="btn btn-danger btn-small" onclick="clearImage()">✕ Supprimer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Localisation :</label>
+                        <input type="text" id="productLocation" placeholder="Ville, quartier..." required>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="addProduct()">Publier l'annonce</button>
+                </form>
+            </div>
+
+            <!-- Section Demandes de location -->
+            <div id="ownerOrders" class="section">
+                <h2>Demandes de location</h2>
+                <div class="orders-tabs">
+                    <button class="tab-btn active" onclick="filterOrdersByStatus('pending')">En attente</button>
+                    <button class="tab-btn" onclick="filterOrdersByStatus('accepted')">Acceptées</button>
+                    <button class="tab-btn" onclick="filterOrdersByStatus('completed')">Terminées</button>
+                    <button class="tab-btn" onclick="filterOrdersByStatus('cancelled')">Annulées</button>
+                </div>
+                <div id="ownerOrdersList" class="orders-list">
+                    <!-- Les demandes seront affichées ici -->
+                </div>
+            </div>
+
+            <!-- Section Revenus -->
+            <div id="ownerEarnings" class="section">
+                <h2>Mes revenus</h2>
+                <div class="earnings-summary">
+                    <div class="earning-card">
+                        <h3>Ce mois</h3>
+                        <p class="earning-amount" id="monthEarning">0 DH</p>
+                    </div>
+                    <div class="earning-card">
+                        <h3>Total</h3>
+                        <p class="earning-amount" id="totalEarning">0 DH</p>
+                    </div>
+                </div>
+                <h3>Historique des revenus</h3>
+                <div id="earningsHistory" class="earnings-list">
+                    <!-- L'historique sera affichés ici -->
+                </div>
+            </div>
+
+            <!-- Section Profil -->
+            <div id="ownerProfile" class="section">
+                <h2>Mon profil</h2>
+                <div class="profile-info">
+                    <div class="info-group">
+                        <label>Nom :</label>
+                        <p id="ownerProfileName"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email :</label>
+                        <p id="ownerProfileEmail"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Localisation :</label>
+                        <input type="text" id="ownerProfileLocation" placeholder="Votre localisation...">
+                    </div>
+                    <div class="info-group">
+                        <label>Téléphone :</label>
+                        <input type="tel" id="ownerProfilePhone" placeholder="Votre téléphone">
+                    </div>
+                    <div class="info-group">
+                        <label>Bio/Description :</label>
+                        <textarea id="ownerProfileBio" placeholder="Dites-nous un peu plus sur vous..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="saveOwnerProfile()">Sauvegarder le profil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de détails produit -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="product-detail-image">
+                    <div id="modalProductImage" class="product-image-placeholder"></div>
+                </div>
+                <div class="product-detail-info">
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-meta">
+                        <span class="category" id="modalProductCategory"></span>
+                        <span class="condition" id="modalProductCondition"></span>
+                        <span class="location" id="modalProductLocation"></span>
+                    </div>
+                    <p id="modalProductDescription"></p>
+                    <div class="owner-info-section">
+                        <h3>📞 Propriétaire</h3>
+                        <div class="owner-card">
+                            <p><strong>Nom:</strong> <span id="modalOwnerName"></span></p>
+                            <p><strong>Téléphone:</strong> <span id="modalOwnerPhone"></span></p>
+                            <p><strong>Localisation:</strong> <span id="modalOwnerLocation"></span></p>
+                        </div>
+                    </div>
+                    <div class="product-pricing">
+                        <div class="price-item">
+                            <label>Prix par jour</label>
+                            <p class="price" id="modalProductPrice"></p>
+                        </div>
+                        <div class="price-item">
+                            <label>Caution</label>
+                            <p class="price" id="modalProductDeposit"></p>
+                        </div>
+                    </div>
+                    <div class="rental-form">
+                        <div class="form-group">
+                            <label>Date de début :</label>
+                            <input type="date" id="rentalStartDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date de fin :</label>
+                            <input type="date" id="rentalEndDate" required>
+                        </div>
+                        <div class="rental-summary">
+                            <p>Nombre de jours : <span id="rentalDays">0</span></p>
+                            <p>Coût total : <span id="rentalTotal">0</span> DH</p>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-primary" id="btnRent" onclick="rentProduct()">Commander</button>
+                            <button class="btn btn-secondary" id="btnFavorite" onclick="toggleFavorite()">♡ Ajouter aux favoris</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de paiement -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content payment-modal">
+            <div class="payment-header">
+                <div class="payment-title-section">
+                    <span class="payment-icon">💳</span>
+                    <div>
+                        <h2>Paiement de la location</h2>
+                        <p class="payment-subtitle">Complétez votre paiement en toute sécurité</p>
+                    </div>
+                </div>
+                <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+            </div>
+            
+            <div class="payment-summary">
+                <h3 class="summary-title">Récapitulatif</h3>
+                <div class="summary-content">
+                    <div class="payment-item">
+                        <span>Produit</span>
+                        <strong id="paymentProductName">-</strong>
+                    </div>
+                    <div class="payment-item">
+                        <span>Durée</span>
+                        <strong id="paymentDays">-</strong> jours
+                    </div>
+                    <div class="payment-item">
+                        <span>Prix location</span>
+                        <strong id="paymentPrice">0</strong> <span class="currency">DH</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Caution</span>
+                        <strong id="paymentDeposit">0</strong> <span class="currency">DH</span>
+                    </div>
+                    <div class="payment-divider"></div>
+                    <div class="payment-item total">
+                        <span>Total à payer</span>
+                        <div class="total-amount">
+                            <strong id="paymentTotal">0</strong> <span class="currency">DH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="paymentForm" class="payment-form">
+                <div class="form-section">
+                    <h3 class="form-section-title">💳 Informations de carte bancaire</h3>
+                    
+                    <div class="form-group">
+                        <label for="cardNumber">Numéro de carte</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            <span class="input-icon">🔒</span>
+                        </div>
+                        <small>16 chiffres sans espaces</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardExpiry">Expiration</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" pattern="\d{2}/\d{2}" required>
+                            <small>Format: MM/YY</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCVC">CVC/CVV</label>
+                            <input type="text" id="cardCVC" placeholder="123" maxlength="3" pattern="\d{3}" required>
+                            <small>3 chiffres au dos</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardName">Titulaire</label>
+                        <input type="text" id="cardName" placeholder="Nom et prénom" required>
+                        <small>Exactement comme sur la carte</small>
+                    </div>
+                </div>
+
+                <div class="payment-note">
+                    <span class="note-icon">ℹ️</span>
+                    <p><strong>Plateforme de démonstration</strong> - Vos données de paiement ne seront pas stockées.</p>
+                </div>
+
+                <div class="modal-actions payment-actions">
+                    <button type="button" class="btn btn-primary btn-large" onclick="processPayment()">
+                        <span>Payer</span>
+                        <span id="paymentAmount" class="amount-badge">0 DH</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="closePaymentModal()">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h2 id="confirmTitle"></h2>
+            <p id="confirmMessage"></p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="btnConfirm" onclick="confirmAction()">Confirmer</button>
+                <button class="btn btn-secondary" onclick="closeConfirmModal()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

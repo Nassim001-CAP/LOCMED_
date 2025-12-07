@@ -1,0 +1,27 @@
+<!-- 
+UTILITAIRE DE RÉINITIALISATION - LocMed
+
+Pour réinitialiser complètement la plateforme :
+
+1. Ouvrez la console du navigateur (F12 ou Ctrl+Shift+I)
+2. Tapez : resetAllData()
+3. Appuyez sur Entrée
+4. La plateforme sera réinitialisée
+
+Cela va :
+✅ Supprimer tous les produits (y compris les anciens)
+✅ Supprimer tous les favoris
+✅ Déconnecter l'utilisateur actuel
+✅ Charger les comptes de test uniquement
+✅ Recharger la page
+-->
+
+Conseil : Vous pouvez aussi nettoyer manuellement localStorage :
+- Ouvrez F12 (DevTools)
+- Allez à "Application" ou "Storage"
+- Cliquez sur "Local Storage"
+- Cherchez "locmedData" et "favorites"
+- Supprimez-les
+- Rechargez la page (F5)
+
+Après cela, seuls les 4 comptes de test seront présents, sans aucun produit.
