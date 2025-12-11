@@ -166,12 +166,13 @@ function handleSignup() {
     const name = document.getElementById('signupName').value.trim();
     const email = document.getElementById('signupEmail').value.trim();
     const phone = document.getElementById('signupPhone').value.trim();
+    const cin = document.getElementById('signupCIN').value.trim();
     const password = document.getElementById('signupPassword').value;
     const passwordConfirm = document.getElementById('signupPasswordConfirm').value;
     const userType = document.querySelector('input[name="userType"]:checked').value;
 
     // Validation des champs vides
-    if (!name || !email || !phone || !password || !passwordConfirm) {
+    if (!name || !email || !phone || !cin || !password || !passwordConfirm) {
         showAlert('Veuillez remplir tous les champs', 'error');
         return;
     }
@@ -186,6 +187,12 @@ function handleSignup() {
     // Validation du numéro de téléphone (au moins 8 caractères)
     if (phone.length < 8) {
         showAlert('Veuillez entrer un numéro de téléphone valide', 'error');
+        return;
+    }
+
+    // Validation du CIN (au moins 6 caractères)
+    if (cin.length < 6) {
+        showAlert('Veuillez entrer un numéro CIN valide', 'error');
         return;
     }
 
@@ -216,6 +223,7 @@ function handleSignup() {
         type: userType,
         location: '',
         phone: phone,
+        cin: cin,
         bio: '',
         deliveryAddress: userType === 'tenant' ? '' : '',
         totalEarnings: 0,
@@ -235,6 +243,7 @@ function handleSignup() {
     document.getElementById('signupName').value = '';
     document.getElementById('signupEmail').value = '';
     document.getElementById('signupPhone').value = '';
+    document.getElementById('signupCIN').value = '';
     document.getElementById('signupPassword').value = '';
     document.getElementById('signupPasswordConfirm').value = '';
 
@@ -256,6 +265,8 @@ function handleLogout() {
     document.getElementById('loginPassword').value = '';
     document.getElementById('signupName').value = '';
     document.getElementById('signupEmail').value = '';
+    document.getElementById('signupPhone').value = '';
+    document.getElementById('signupCIN').value = '';
     document.getElementById('signupPassword').value = '';
     document.getElementById('signupPasswordConfirm').value = '';
     

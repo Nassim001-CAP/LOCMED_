@@ -164,11 +164,13 @@ function handleLogin() {
 function handleSignup() {
     const name = document.getElementById('signupName').value;
     const email = document.getElementById('signupEmail').value;
+    const phone = document.getElementById('signupPhone').value;
+    const cin = document.getElementById('signupCIN').value;
     const password = document.getElementById('signupPassword').value;
     const passwordConfirm = document.getElementById('signupPasswordConfirm').value;
     const userType = document.querySelector('input[name="userType"]:checked').value;
 
-    if (!name || !email || !password || !passwordConfirm) {
+    if (!name || !email || !phone || !cin || !password || !passwordConfirm) {
         showAlert('Veuillez remplir tous les champs', 'error');
         return;
     }
@@ -188,9 +190,10 @@ function handleSignup() {
         name: name,
         email: email,
         password: password,
+        phone: phone,
+        cin: cin,
         type: userType,
         location: '',
-        phone: '',
         bio: '',
         totalEarnings: 0
     };
@@ -198,6 +201,14 @@ function handleSignup() {
     appData.users.push(newUser);
     appData.currentUser = newUser;
     saveAppData();
+
+    // Réinitialiser le formulaire
+    document.getElementById('signupName').value = '';
+    document.getElementById('signupEmail').value = '';
+    document.getElementById('signupPhone').value = '';
+    document.getElementById('signupCIN').value = '';
+    document.getElementById('signupPassword').value = '';
+    document.getElementById('signupPasswordConfirm').value = '';
 
     showAlert('Inscription réussie!', 'success');
     setTimeout(() => {
